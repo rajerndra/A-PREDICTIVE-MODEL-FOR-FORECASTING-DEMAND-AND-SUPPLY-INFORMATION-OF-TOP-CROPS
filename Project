@@ -1,0 +1,109 @@
+import pandas as pd
+data=pd.read_csv('C:/Users/Admin/Desktop/crop202201.csv')
+print("Average arival of tomato in market of first month ")
+data.head(20)
+data.info(20)
+data['2009'].hist()
+data['2012'].hist()
+data['2011'].hist()
+# display all year data
+data.hist()
+ # import seaborn module
+
+import seaborn as sns
+ 
+# setting style
+
+sns.set_style("whitegrid")
+ 
+# plotting data using boxplot for 2013 - 2014
+
+sns.boxplot(x='2011', y='2018', data=data)
+
+# scatter plot 2013 data vs 2014 data
+# import required modules
+
+import matplotlib.pyplot as plt
+
+plt.scatter(data['2011'],data['2018'])
+ 
+plt.show()
+# line plot 2013 data vs 2014 data
+
+plt.plot(data['2011'],data['2018'])
+ 
+plt.show()
+# import required modules
+
+import matplotlib.pyplot as plt
+
+from scipy import stats
+ 
+ 
+# assign data
+
+x = data['2011']
+
+y = data['2018']
+ 
+ 
+# linear regression 2017 data vs 2018 data
+
+slope, intercept, r, p, std_err = stats.linregress(x, y)
+ 
+ 
+# function to return slope
+
+def myfunc(x):
+
+    return slope * x + intercept
+ 
+ 
+
+mymodel = list(map(myfunc, x))
+ 
+# scatter
+plt.scatter(x, y)
+ 
+# plotting the data
+plt.plot(x, mymodel)
+ 
+# display the figure
+plt.show()
+ # import required modules
+
+import matplotlib.pyplot as plt
+
+from scipy import stats
+ 
+ 
+# assign data
+
+x = data['2016']
+
+y = data['2017']
+ 
+ 
+# linear regression 2017 data vs 2018 data
+
+slope, intercept, r, p, std_err = stats.linregress(x, y)
+ 
+ 
+# function to return slope
+
+def myfunc(x):
+
+    return slope * x + intercept
+ 
+ 
+
+mymodel = list(map(myfunc, x))
+ 
+# scatter
+plt.scatter(x, y)
+ 
+# plotting the data
+plt.plot(x, mymodel)
+ 
+# display the figure
+plt.show()
